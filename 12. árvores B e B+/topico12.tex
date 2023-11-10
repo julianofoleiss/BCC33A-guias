@@ -1,0 +1,113 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Semana 13: Árvores B e B+},
+            pdfauthor={Prof.~Dr.~Juliano Henrique Foleis},
+            colorlinks=true,
+            linkcolor=Maroon,
+            filecolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Semana 13: Árvores B e B+}
+\author{Prof.~Dr.~Juliano Henrique Foleis}
+\date{}
+
+\begin{document}
+\maketitle
+
+Estude com atenção os vídeos e as leituras sugeridas abaixo.
+
+\hypertarget{vuxeddeos}{%
+\section{Vídeos}\label{vuxeddeos}}
+
+\href{https://youtu.be/5mC6TmviBPE}{Árvores B}
+
+\href{https://youtu.be/x-NNKmdHm94}{Árvores B+}
+
+\hypertarget{leitura-sugerida}{%
+\section{Leitura Sugerida}\label{leitura-sugerida}}
+
+FEOFILOFF, Paulo. Estruturas de Dados. \emph{Árvores B}
+\href{https://www.ime.usp.br/~pf/estruturas-de-dados/aulas/B-trees.html}{(Link)}
+
+CORMEN, T. H; LEISERSON, C. E; RIVEST, R. L. e STEIN, C. Algoritmos:
+Teoria e Prática. 3a edição. Ed. Elsevier. 2012. Capítulo 18 -- Árvores
+B
+
+SEDGEWICK, Robert e WAYNE, Kevin. Algorithms, 4th. ed.~Addison-Wesley,
+2011. Capítulo 6, Seção \emph{B-Trees} (pp.~866-874) {[}Em Inglês{]}
+
+\hypertarget{exercuxedcios-dos-materiais-de-leitura-sugerida}{%
+\subsection{Exercícios dos materiais de leitura
+sugerida}\label{exercuxedcios-dos-materiais-de-leitura-sugerida}}
+
+Exercício 1.1 da página do Prof.~Feofiloff (Árvores B):
+\href{https://www.ime.usp.br/~pf/estruturas-de-dados/aulas/B-trees.html}{(Link)}
+
+\hypertarget{atividade-para-entregar}{%
+\section{Atividade para Entregar}\label{atividade-para-entregar}}
+
+Não há atividades para serem entregues essa semana.
+
+\centering
+\vspace{40pt}
+\Large
+
+\textbf{BONS ESTUDOS!}
+
+\end{document}

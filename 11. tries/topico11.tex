@@ -1,0 +1,216 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Semana 10: Tries - Árvores de Prefixos},
+            pdfauthor={Prof.~Dr.~Juliano Henrique Foleis},
+            colorlinks=true,
+            linkcolor=Maroon,
+            filecolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Semana 10: \emph{Tries} - Árvores de Prefixos}
+\author{Prof.~Dr.~Juliano Henrique Foleis}
+\date{}
+
+\begin{document}
+\maketitle
+
+Estude com atenção os vídeos e as leituras sugeridas abaixo. Os
+exercícios servem para ajudar na fixação do conteúdo e foram escolhidos
+para complementar o material básico apresentado nos vídeos e nas
+leituras. Quando o exercício pede que crie ou modifique algum algoritmo,
+sugiro que implemente-o em linguagem C para ver funcionando na prática.
+O único exercício que é necessário entregar está descrito na Seção
+``Atividade Para Entregar''.
+
+\hypertarget{vuxeddeos}{%
+\section{Vídeos}\label{vuxeddeos}}
+
+\href{https://youtu.be/Spmw4hTo7ek}{Tries: Árvores de Prefixos}
+
+\hypertarget{leitura-sugerida}{%
+\section{Leitura Sugerida}\label{leitura-sugerida}}
+
+FEOFILOFF, Paulo. Estruturas de Dados. \emph{Tries (árvores digitais)}
+\href{https://www.ime.usp.br/~pf/estruturas-de-dados/aulas/tries.html}{(Link)}
+
+\hypertarget{exercuxedcios-dos-materiais-de-leitura-sugerida}{%
+\subsection{Exercícios dos materiais de leitura
+sugerida}\label{exercuxedcios-dos-materiais-de-leitura-sugerida}}
+
+Exercícios 3.1, 3.2 da página do Prof.~Feofiloff (Tries (árvores
+digitais)):
+\href{https://www.ime.usp.br/~pf/estruturas-de-dados/aulas/tries.html}{(Link)}
+
+\hypertarget{atividade-para-entregar}{%
+\section{Atividade para Entregar}\label{atividade-para-entregar}}
+
+A atividade a seguir é para ser feita individualmente e entregue via
+Moodle no tópico da Semana 10. A data-limite para entrega é dia
+16/10/2020 às 23:55. Em caso de cópia as atividades dos participantes
+serão desconsideradas.
+
+\hypertarget{descriuxe7uxe3o-da-atividade}{%
+\subsection{Descrição da Atividade}\label{descriuxe7uxe3o-da-atividade}}
+
+Clone (ou atualize!) o repositório da disciplina no
+\href{https://github.com/julianofoleiss/BCC33A}{github}. A implementação
+da trie está nos arquivos \emph{trie/asciitrie.c} e
+\emph{trie/asciitrie.h}.
+
+\textbf{1.} Implemente as funções a seguir:
+
+\textbf{a.} Implemente as funções \emph{AT\_Criar}, \emph{AT\_Buscar},
+\emph{AT\_Inserir} e \emph{AT\_Remover} conforme mostrado no
+\href{https://youtu.be/Spmw4hTo7ek}{vídeo}.
+
+\textbf{b.} Implemente a função \emph{AT\_Imprimir} de forma que produza
+a saída mostrada no \href{https://youtu.be/Spmw4hTo7ek?t=4155}{vídeo}.
+
+\textbf{c.} Escreva uma versão iterativa de \emph{AT\_Buscar} e
+\emph{AT\_Inserir}.
+
+\textbf{d.} Escreva uma versão iterativa de \emph{AT\_Remover}.
+\textbf{DICA:} use uma estrutura de dados auxiliar para ``lembrar'' os
+nós analisados durante o percurso na árvore.
+
+\textbf{e.} Uma trie é dita limpa se cada uma de suas folhas corresponde
+a uma chave. Em outras palavras, uma trie \emph{T} é limpa se para todo
+nó \emph{N} que é folha de \emph{T}, então \emph{N--\textgreater{}estado
+== ATE\_OCUPADO}. Escreva uma função \emph{AT\_Limpa} que retorna 1 se a
+trie está limpa e 0, caso contrário.
+
+\textbf{f.} Escreva uma função \emph{AT\_Tamanho} que retorna o número
+de CHAVES armazenadas em uma trie. Sua implementação deve ser
+preguiçosa, ou seja, não guarda nenhuma informação em relação ao tamanho
+das sub-árvores na estrutura.
+
+\textbf{g.} Reescreva a função \emph{AT\_Tamanho} usando uma
+implementação ansiosa. Altere a estrutura \emph{ASCIITrie} de acordo.
+
+\textbf{h.} Implemente a função \emph{AT\_Min}, que retorna a menor
+chave da trie. Considere que a menor chave é aquela que é a primeira em
+uma ordenação lexicográfica em relação as demais chaves. Por exemplo
+``abc'' é lexicograficamente \emph{menor} que ``abd''.
+
+\textbf{i.} Implemente a função \emph{AT\_Max}, que retorna a maior
+chave da trie. Considere que a maior chave é aquela que é a última em
+uma ordenação lexicográfica em relação as demais chaves. Por exemplo
+``xyz'' é lexicograficamente \emph{maior} que ``xyy''.
+
+\textbf{2.} Implemente a função \emph{int SubstringCountLenL(char * s,
+int L)} que calcule o número de substrings distintas de comprimento L
+que a string de entrada \emph{s} contém. Caso L seja maior que o
+comprimento da string, retorne 0. Por exemplo, a string ``abcdef''
+possui 4 substrings de tamanho 3 (abc, bcd, cde, def). \textbf{Dica:}
+use uma trie para guardar as substrings.
+
+\textbf{3.} Use os casos de teste fornecidos e teste sua implementação
+do exercício 2. Preencha a tabela abaixo com o número de substrings
+distintas em cada caso. \textbf{DICA:} Caso esteja dando estouro de
+pilha (por conta de uma pilha de recursão muito grande), tente usar as
+versões iterativas das funções de Inserção e Busca.
+
+\begin{figure}
+\centering
+\includegraphics{tabela_sem10.png}
+\caption{Resultados do Exercício 3}
+\end{figure}
+
+\hypertarget{vocuxea-deve-entregar}{%
+\subsection{Você deve Entregar}\label{vocuxea-deve-entregar}}
+
+Entregue em formato .zip os arquivos a seguir:
+
+\begin{itemize}
+\tightlist
+\item
+  Os arquivos-fonte desenvolvidos nos itens \textbf{1 e 2}, bem como os
+  arquivos-fonte criados para realizar os testes. Faça um
+  \emph{Makefile} para compilar o seu programa. Modularize conforme
+  julgar necessário.
+\item
+  A Tabela preenchida no Exercício \textbf{3} em um \emph{pdf}.
+\end{itemize}
+
+\centering
+
+\vspace{20pt}
+
+\textbf{Por favor entregue como especificado acima!}
+
+\vspace{50pt}
+
+\textbf{A data-limite para entrega é dia 16/10/2020 às 23:55.}
+
+\vspace{20pt}
+
+\Large
+
+\textbf{BONS ESTUDOS!}
+
+\end{document}
