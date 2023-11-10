@@ -1,7 +1,5 @@
 # Guias de Estudo da Disciplina BCC33A (Algoritmos e Estruturas de Dados 2)
 
-# Slides da Disciplina BCC5001 (Análise de Algoritmos)
-
 Este repositório contém o código-fonte usado para gerar os slides da disciplina de Algoritmos e Estruturas de Dados 2, ministrada por mim na Universidade Tecnológica Federal do Paraná, Campus Campo Mourão.
 
 Este curso foca em teoria e implementação de algoritmos clássicos e estruturas de dados fundamentais. Os seguintes tópicos são abordados:
